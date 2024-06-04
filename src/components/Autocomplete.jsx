@@ -27,8 +27,7 @@ const Autocomplete = ({ callbackFn }) => {
       document.getElementsByTagName('head')[0].appendChild(script);
     };
 
-    // const apiKey = process.env.GOOGLE_MAPS_API_KEY;
-    const apiKey = "AIzaSyAQz7PL0lV3TLe_zUFEF29yghBw-MnNfJw";
+    const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
     loadScript(`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`, () => {
       const autocomplete = new window.google.maps.places.Autocomplete(inputRef.current, {
@@ -53,9 +52,6 @@ const Autocomplete = ({ callbackFn }) => {
         placeholder="Enter an address"
         style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
       />
-      <div>
-        <strong>Selected Address:</strong> {address}
-      </div>
     </div>
   );
 };
